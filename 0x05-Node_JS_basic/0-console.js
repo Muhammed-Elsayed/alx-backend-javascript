@@ -1,4 +1,3 @@
-/* eslint-disable */
 const displayMessage = (msg) => {
   console.log(msg);
 };
