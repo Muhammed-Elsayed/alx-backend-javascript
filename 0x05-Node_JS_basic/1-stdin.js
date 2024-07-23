@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const readline = require('readline');
 
 // Create an interface to read from stdin
