@@ -1,22 +1,16 @@
-/* eslint-disable */
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const readline = require('readline');
-
-// Create an interface to read from stdin
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-// Display the welcome message
-console.log('Welcome to Holberton School, what is your name?');
-
-// Read input from the user
-rl.question('', (input) => {
-  // Display the input received
-  console.log(`Your name is: ${input}`);
-
-  // Close the readline interface and display the closing message
-  rl.close();
-  console.log('This important software is now closing');
-});
+if (process.stdin.isTTY) {
+  process.stdin.on('data', (data) => {
+    process.stdout.write(`Your name is: ${data.toString()}`);
+    process.exit();
+  });
+} else {
+  process.stdin.on('data', (data) => {
+    process.stdout.write(`Your name is: ${data.toString()}`);
+    process.exit();
+  });
+  process.on('exit', () => {
+    process.stdout.write('This important software is now closing\n');
+  });
+}
